@@ -1,0 +1,9 @@
+# Install PyTorch separately so its CUDA build matches the host.
+numpy==2.1.3
+pandas==2.2.3
+scipy==1.14.1
+scikit-learn==1.5.2
+matplotlib==3.9.2
+seaborn==0.13.2
+tqdm==4.66.2
+ipykernel==6.29.5

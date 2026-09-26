@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Large or generated research artifacts.
+data/*
+!data/README.md
+artifacts/*
+!artifacts/README.md
+runs/
+reports/
+*.pt
+*.pth
+*.ckpt
+*.npz
+*.parquet
+*.joblib
+*.log
+
+# KuaiSim data and pretrained outputs are intentionally external.
+third_party/kuaisim/dataset/
+third_party/kuaisim/code/output/
+third_party/kuaisim/downloads/
+

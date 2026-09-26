@@ -1,0 +1,26 @@
+[run]
+experiment_id = "section54-update-audit-mid-v1"
+seed = 20260926
+source_run = "artifacts/source_run"
+profile_run = "artifacts/profile_run"
+snapshot = "artifacts/checkpoints/checkpoint_0150.pt"
+output_dir = "runs/section54/update-audit-mid-v1"
+
+[data]
+episode_batch_size = 32
+training_fraction = 0.70
+reference_fraction = 0.15
+partition_seed = 20261325
+
+[audit]
+proposal_count = 32
+proposal_batch_size = 128
+reference_batch_size = 1024
+audit_batch_size = 2048
+target_candidate_count = 512
+min_group_weight = 4.0
+trust_radius_ratio = 1.0
+relative_loss_budget = 0.01
+numerical_tolerance = 0.000001
+backtracking_steps = 12
+bootstrap_replicates = 1000

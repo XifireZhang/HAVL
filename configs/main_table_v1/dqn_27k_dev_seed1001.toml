@@ -1,0 +1,74 @@
+[run]
+run_id = "havl-dqn-27k-dev-seed1001"
+kind = "development"
+dataset = "kuairand_27k_supported_subset"
+seed = 1001
+device = "cuda:0"
+methods = ["base", "havl", "havl_random", "havl_activity", "havl_value"]
+
+[kuaisim]
+root = "third_party/kuaisim"
+model_log = "code/output/Kuairand_27K/env/log/user_KRMBUserResponse_lr0.0001_reg0_nlayer2.model.log"
+episode_batch_size = 32
+initial_temper = 20.0
+item_correlation = 0.2
+slate_size = 1
+gamma = 0.9
+
+[data]
+warmup_stream_steps = 400
+profile_validation_stream_steps = 80
+user_split_seed = 1701
+train_user_fraction = 0.80
+validation_user_fraction = 0.10
+
+[profile]
+state_feature_dim = 16
+hidden_dim = 128
+epochs = 10
+batch_size = 256
+learning_rate = 0.001
+weight_reward = 1.0
+weight_continue = 1.0
+weight_successor = 1.0
+
+[dqn]
+hidden_dims = [256, 128]
+updates = 3125
+batch_size = 128
+learning_rate = 0.001
+weight_decay = 0.00001
+target_tau = 0.01
+teacher_tau = 0.01
+epsilon_start = 1.0
+epsilon_end = 0.10
+behavior_candidate_count = 512
+target_candidate_count = 512
+replay_capacity = 150000
+reference_stride = 5
+control_interval = 1
+reference_batch_size = 512
+groups = 8
+min_group_ess = 16.0
+prototype_fit_size = 2048
+prototype_calibration_size = 2048
+prototype_refresh_interval = 100
+prototype_ema = 0.02
+radius_quantile = 0.90
+soft_temperature = 0.5
+budget_eta = 0.01
+loss_floor = 0.1
+trust_radius_ratio = 1.0
+numerical_tolerance = 0.0000001
+backtracking_steps = 10
+progress_interval = 100
+discor_learning_rate = 0.001
+discor_temperature = 1.0
+discor_scale_ema = 0.99
+
+[evaluation]
+contexts_per_user = 1
+max_users = 0
+horizon = 25
+discount = 0.9
+full_catalog_chunk = 8192
